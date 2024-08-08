@@ -4,13 +4,12 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import styles from "../../styles/Reviews.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
-import ReviewEditForm from "../reviews/ReviewEditForm";
+import ReviewEditForm from "./ReviewEditForm";
 
 const Reviews = (props) => {
   const {
     profile_id,
     owner,
-
     product_name,
     content,
     setReviews,
@@ -48,11 +47,11 @@ const Reviews = (props) => {
           ) : (
             <>
               <div>
-                <h4>Product:</h4>
+                <h4>Title:</h4>
                 <p className={styles.CssFix}>{product_name}</p>
               </div>
               <div>
-                <h4>Review:</h4>
+                <h4>My thoughts on it:</h4>
                 <p className={styles.CssFix}>{content}</p>
               </div>
             </>
