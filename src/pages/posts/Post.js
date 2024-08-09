@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger } from "react-bootstrap";
+import { Card, Media } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -193,7 +193,7 @@ const Post = (props) => {
                 ) : (
                   <CloseOutlinedIcon />
                 )}
-                Review
+                Review available
               </div>
             </Tooltip>
           ) : reviews.results.length && !currentUser ? (

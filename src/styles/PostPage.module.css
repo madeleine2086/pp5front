@@ -1,0 +1,13 @@
+.Comments {
+    margin-bottom: 32px;
+}
+
+.NoComment {
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .NoComment {
+        margin-left: 10px;
+    }
+}
