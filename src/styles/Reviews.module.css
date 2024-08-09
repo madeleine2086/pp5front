@@ -10,3 +10,12 @@
     font-weight: lighter;
     color: #c1c1c5;
 }
+
+.CssFix {
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.ReviewTitle {
+    padding: 1em;
+}

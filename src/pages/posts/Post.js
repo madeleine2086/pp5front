@@ -7,6 +7,15 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { red } from "@mui/material/colors";
+import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+
 import Reviews from "../reviews/Reviews";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Tooltip from "@mui/material/Tooltip";
@@ -128,58 +137,85 @@ const Post = (props) => {
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
-        <div className={styles.PostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={
-                <Tooltip>
-                  <>You can't like your own post!</>
-                </Tooltip>
-              }
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={handleUnlike}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={handleLike}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {likes_count}
-          <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
-        </div>
-        <div>
-          {reviews.results.length ? (
+        {title && (
+          <Card.Title className={`${styles.CardTitle} "text-center"`}>
+            {title}
+          </Card.Title>
+        )}
+        {content && (
+          <Card.Text className={styles.CardDescription}>{content}</Card.Text>
+        )}
+        <div className={`${styles.PostBar} ${appStyles.BoxShadow}`}>
+          <div className={styles.Heart}>
+            {is_owner ? (
+              <Tooltip
+                title="You have to log in to like posts"
+                placement="top"
+                arrow
+              >
+                <FavoriteBorderOutlinedIcon />
+              </Tooltip>
+            ) : like_id ? (
+              <span onClick={handleUnlike}>
+                <FavoriteIcon sx={{ color: red[500] }} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleLike}>
+                <FavoriteBorderOutlinedIcon />
+              </span>
+            ) : (
+              <Tooltip
+                title="Please login to like posts!"
+                placement="top"
+                arrow
+              >
+                <Link to={"/signin"}>
+                  <FavoriteIcon />
+                </Link>
+              </Tooltip>
+            )}
+            {likes_count}
+          </div>
+          <div className={styles.Comments}>
+            <Link to={`/posts/${id}`} aria-label={title}>
+              <ChatBubbleOutlineOutlinedIcon />
+            </Link>
+            {comments_count}
+          </div>
+          {reviews.results.length && currentUser ? (
             <Tooltip title="Click to view the review" placement="bottom" arrow>
               <div
                 className={styles.Reviews}
                 onClick={() => setReviewOpen(!reviewOpen)}
               >
-                See Review
+                {!reviewOpen ? (
+                  <FeedOutlinedIcon className={styles.Reviews} />
+                ) : (
+                  <CloseOutlinedIcon />
+                )}
+                Review
               </div>
             </Tooltip>
-          ) : is_owner && currentUser && reviews.results.length === 0 ? (
+          ) : reviews.results.length && !currentUser ? (
+            <Tooltip title="Login to view the review" placement="bottom" arrow>
+              <Link to={"/signin"} aria-label="Click to sign in">
+                <div className={styles.Reviews}>
+                  <FeedOutlinedIcon className={styles.Reviews} />
+                  Login to see a review
+                </div>
+              </Link>
+            </Tooltip>
+          ) : is_owner && reviews.results.length === 0 ? (
             <Tooltip title="Click to add a review" placement="bottom" arrow>
               <div
                 className={styles.Reviews}
                 onClick={() => setReviewOpen(!reviewOpen)}
               >
+                {!reviewOpen ? (
+                  <AddCircleOutlineOutlinedIcon />
+                ) : (
+                  <CloseOutlinedIcon />
+                )}
                 Add Review
               </div>
             </Tooltip>

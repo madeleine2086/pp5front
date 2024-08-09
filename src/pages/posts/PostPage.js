@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -16,14 +16,17 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import Tooltip from "@mui/material/Tooltip";
+import { Link } from "react-router-dom";
 
 
 function PostPage() {
-  const { id, owner } = useParams();
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
+ 
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const [reviews, setReviews] = useState({ results: [] });

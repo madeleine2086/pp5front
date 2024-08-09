@@ -22,3 +22,12 @@
   .HeartOutline:hover {
     color: #f85032;
   }
+
+  .Reviews:hover {
+    color: #8a8a8a;
+  }
+
+span .NoReview {
+    margin-top: 16px;
+    align-items: center;
+  }
