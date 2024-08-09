@@ -11,10 +11,10 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { red } from "@mui/material/colors";
-import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
+import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 
 import Reviews from "../reviews/Reviews";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
@@ -178,7 +178,7 @@ const Post = (props) => {
           </div>
           <div className={styles.Comments}>
             <Link to={`/posts/${id}`} aria-label={title}>
-              <ChatBubbleOutlineOutlinedIcon />
+              <CommentOutlinedIcon />
             </Link>
             {comments_count}
           </div>
@@ -201,7 +201,7 @@ const Post = (props) => {
               <Link to={"/signin"} aria-label="Click to sign in">
                 <div className={styles.Reviews}>
                   <FeedOutlinedIcon className={styles.Reviews} />
-                  Login to see a review
+                  Review available, log in to see it!
                 </div>
               </Link>
             </Tooltip>
