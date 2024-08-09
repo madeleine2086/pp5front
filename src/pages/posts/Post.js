@@ -1,11 +1,17 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Media, OverlayTrigger } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import Reviews from "../reviews/Reviews";
+import ReviewCreateForm from "../reviews/ReviewCreateForm";
+import Tooltip from "@mui/material/Tooltip";
+import appStyles from "../../App.module.css";
+import useAlert from "../../hooks/useAlert";
 
 const Post = (props) => {
   const {
@@ -27,6 +33,10 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [reviews, setReviews] = useState({ results: [] });
+  const [reviewOpen, setReviewOpen] = useState(false);
+  const { setAlert } = useAlert();
+
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -35,15 +45,17 @@ const Post = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/posts/${id}/`);
-      history.goBack();
+      history.push("/");
+      setAlert("You have deleted your post", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "Error");
     }
   };
 
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
+      setAlert("You liked this post!", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -53,13 +65,14 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
+      setAlert("You unliked this post", "success");
       setPosts((prevPosts) => ({
         ...prevPosts,
         results: prevPosts.results.map((post) => {
@@ -69,9 +82,28 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const { data } = await axiosReq.get(`/reviews/?post=${id}`);
+        setReviews(data);
+      } catch (err) {
+        // console.log(err);
+      }
+    };
+
+    const timer = setTimeout(() => {
+      fetchReviews();
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [id, currentUser]);
 
   return (
     <Card className={styles.Post}>
@@ -102,7 +134,11 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              overlay={
+                <Tooltip>
+                  <>You can't like your own post!</>
+                </Tooltip>
+              }
             >
               <i className="far fa-heart" />
             </OverlayTrigger>
@@ -128,7 +164,51 @@ const Post = (props) => {
           </Link>
           {comments_count}
         </div>
+        <div>
+          {reviews.results.length ? (
+            <Tooltip title="Click to view the review" placement="bottom" arrow>
+              <div
+                className={styles.Reviews}
+                onClick={() => setReviewOpen(!reviewOpen)}
+              >
+                See Review
+              </div>
+            </Tooltip>
+          ) : is_owner && currentUser && reviews.results.length === 0 ? (
+            <Tooltip title="Click to add a review" placement="bottom" arrow>
+              <div
+                className={styles.Reviews}
+                onClick={() => setReviewOpen(!reviewOpen)}
+              >
+                Add Review
+              </div>
+            </Tooltip>
+          ) : (
+            <div></div>
+          )}
+        </div>
       </Card.Body>
+      {reviewOpen && (
+        <Card.Body>
+          {is_owner && currentUser && reviews.results.length === 0 ? (
+            <ReviewCreateForm
+              profile_id={currentUser.profile_id}
+              post={id}
+              setReviews={setReviews}
+            />
+          ) : reviews.results.length ? (
+            <Reviews {...reviews.results[0]} setReviews={setReviews} />
+          ) : currentUser ? (
+            <span className={styles.NoReview}>
+              No review has been added yet!
+            </span>
+          ) : (
+            <span className={styles.NoReview}>
+              Sorry no review has been added yet!
+            </span>
+          )}
+        </Card.Body>
+      )}
     </Card>
   );
 };
