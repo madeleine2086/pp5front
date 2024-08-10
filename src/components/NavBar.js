@@ -10,10 +10,14 @@ import {
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { removeTokenTimestamp } from "../utils/utils";
+import AlertDisplay from "./AlertDisplay";
+import useAlert from "../hooks/useAlert";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const { setAlert } = useAlert();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
@@ -21,8 +25,10 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      removeTokenTimestamp();
+      setAlert("You are now logged out", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
@@ -95,6 +101,7 @@ const NavBar = () => {
             <img src={logo} alt="logo" height="45" />
             <span> BOOK|tagram</span>
           </Navbar.Brand>
+          <AlertDisplay />
         </NavLink>
         {currentUser && addPostIcon}
         <Navbar.Toggle

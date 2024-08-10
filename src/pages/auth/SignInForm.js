@@ -17,6 +17,8 @@ import appStyles from "../../App.module.css";
 import signInFiller from "../../assets/signInFiller.jpg";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
+import { setTokenTimestamp } from "../../utils/utils";
+import useAlert from "../../hooks/useAlert"; 
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -28,14 +30,17 @@ function SignInForm() {
 
   const { username, password } = signInData;
   const [errors, setErrors] = useState({});
+  const { setAlert } = useAlert();
   const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      setTokenTimestamp(data);
       setCurrentUser(data.user);
       history.goBack();
+      setAlert(`You are now logged in ${username}`, "success");
     } catch (err) {
       setErrors(err.response?.data);
     }

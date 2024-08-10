@@ -16,6 +16,7 @@ import {
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import useAlert from "../../hooks/useAlert";
 
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
@@ -26,6 +27,7 @@ const UsernameForm = () => {
 
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const { setAlert } = useAlert();
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
@@ -46,8 +48,8 @@ const UsernameForm = () => {
         username,
       }));
       history.goBack();
+      setAlert("You have updated your username", "success");
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };

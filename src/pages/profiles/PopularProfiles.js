@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { axiosReq } from "../../api/axiosDefaults";
+//import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+//import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useProfileData } from "../../contexts/ProfileDataContext";
 import Profile from "./Profile";
 
@@ -26,7 +26,9 @@ const PopularProfiles = ({ mobile }) => {
               ))}
             </div>
           ) : (
-            popularProfiles.results.map((profile) => (
+            popularProfiles.results.slice(0, 6)
+            .filter((profile) => profile.followers_count >= 1)
+            .map((profile) => (
                 <Profile key={profile.id} profile={profile} />
             ))
           )}
