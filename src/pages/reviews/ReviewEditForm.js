@@ -6,7 +6,7 @@ import styles from "../../styles/ReviewEditCreateForm.module.css";
 
 function ReviewEditForm(props) {
   const { id, content, setShowEditForm, setReviews, 
-    product_name, setProductName, setContent,
+    product_name,
    } = props;
 
    const [formProductName, setFormProductName] = useState(product_name);

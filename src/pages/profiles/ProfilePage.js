@@ -25,6 +25,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import MostCommentedPosts from "../../components/MostCommentedPosts";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -150,6 +151,7 @@ function ProfilePage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
         <PopularPosts />
+        <MostCommentedPosts />
       </Col>
     </Row>
   );
