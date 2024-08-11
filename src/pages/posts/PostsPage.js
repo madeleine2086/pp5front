@@ -17,6 +17,7 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import PopularPost from "./PopularPost";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -47,6 +48,7 @@ function PostsPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <PopularPost />
       <PopularProfiles mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
