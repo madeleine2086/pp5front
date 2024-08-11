@@ -1,0 +1,40 @@
+.Post {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.Image {
+    max-height: 35vh;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+.CountNumber {
+    color: #fff;
+}
+
+.Card {    
+    background-color: #6c6666;
+}
+
+.Title {
+    color: #fff;
+}
+
+.Circle {
+    position: absolute !important;
+    top: 6px;
+    left: 6px;
+    background-color: #0000008c !important;
+    z-index: 2!important;
+}
+
+@media only screen and (max-width: 600px) {
+    .Post {
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+}

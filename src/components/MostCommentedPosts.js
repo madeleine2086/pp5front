@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 
 import { Container } from "react-bootstrap";
 
-import PopularPost from "./PopularPost";
-import Asset from "../../components/Asset";
+import MostCommentedPost from "./MostCommentedPost";
+import Asset from "../components/Asset";
 
-import appStyles from "../../App.module.css";
-import styles from "../../styles/PopularPosts.module.css";
+import appStyles from "../App.module.css";
+import styles from "../styles/MostCommentedPosts.module.css";
 import { useLocation } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq } from "../api/axiosDefaults";
 
-import NoResults from "../../assets/no-results.png";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import NoResults from "../assets/no-results.png";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 
-function PopularPosts({ mobile, message, filter = "" }) {
+function MostCommentedPosts({ mobile, message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -50,17 +50,17 @@ function PopularPosts({ mobile, message, filter = "" }) {
       {hasLoaded ? (
         <>
           <p className={styles.Title}>
-            Popular Posts
+            Most commented posts
           </p>
           {posts.results.length ? (
             <>
               {posts.results
-                .filter((post) => post.likes_count >= 2)
-                .sort((a, b) => a.likes_count - b.likes_count)
+                .filter((post) => post.comments_count >= 2)
+                .sort((a, b) => a.comments_count - b.comments_count)
                 .reverse()
                 .slice(0, 2)
                 .map((post) => (
-                  <PopularPost key={post.id} {...post} setPosts={setPosts} />
+                  <MostCommentedPost key={post.id} {...post} setPosts={setPosts} />
                 ))}
             </>
           ) : (
@@ -78,4 +78,4 @@ function PopularPosts({ mobile, message, filter = "" }) {
   );
 }
 
-export default PopularPosts;
+export default MostCommentedPosts;

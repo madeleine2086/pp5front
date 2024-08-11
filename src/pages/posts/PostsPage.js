@@ -18,6 +18,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularPosts from "./PopularPosts";
+import MostCommentedPosts from "../../components/MostCommentedPosts";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -91,6 +92,7 @@ function PostsPage({ message, filter = "" }) {
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
         <PopularPosts />
+        <MostCommentedPosts />
       </Col>
     </Row>
   );

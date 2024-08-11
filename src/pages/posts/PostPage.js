@@ -19,6 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
 import PopularPosts from "./PopularPosts";
+import MostCommentedPosts from "../../components/MostCommentedPosts";
 
 function PostPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -113,6 +114,7 @@ function PostPage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
       <PopularProfiles />
       <PopularPosts />
+      <MostCommentedPosts />
       </Col>
     </Row>
   );
