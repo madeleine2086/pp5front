@@ -18,6 +18,7 @@ import styles from "../../styles/PostPage.module.css";
 import { fetchMoreData } from "../../utils/utils";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
+import PopularPosts from "./PopularPosts";
 
 function PostPage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -58,6 +59,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        
         {hasLoaded ? (
           <>
             <Post {...post.results[0]} setPosts={setPost} postPage />
@@ -101,6 +103,7 @@ function PostPage() {
                 </Tooltip>
               )}
             </Container>
+            <PopularPosts mobile />
           </>
         ) : (
           <Asset spinner />
@@ -108,6 +111,7 @@ function PostPage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
       <PopularProfiles />
+      <PopularPosts />
       </Col>
     </Row>
   );

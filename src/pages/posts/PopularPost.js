@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Fab from "@mui/material/Fab";
 
@@ -9,27 +9,29 @@ const PopularPost = (props) => {
   const { id, title, likes_count, image } = props;
 
   return (
-    <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
-      <Link to={`/posts/${id}`}>
-        <Card.Img className={appStyles.ImageHover} src={image} alt={title} />
-      </Link>
-      <Fab
-        className={styles.Circle}
-        disabled
-        size="large"
-        color="black"
-        aria-label="posts"
-      >
-        <div className={styles.CountNumber}>{likes_count} likes</div>
-      </Fab>
-      <Card.Body className={styles.Card}>
-        {title && (
-          <Card.Title className={`${styles.Title} ${"text-center"}`}>
-            {title}
-          </Card.Title>
-        )}
-      </Card.Body>
-    </Card>
+    <Container className={styles.Post}>
+      <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
+        <Link to={`/posts/${id}`}>
+          <Card.Img className={`${styles.Image} ${appStyles.ImageHover}`} src={image} alt={title} />
+        </Link>
+        <Fab
+          className={styles.Circle}
+          disabled
+          size="large"
+          color="black"
+          aria-label="posts"
+        >
+          <div className={styles.CountNumber}>{likes_count} likes</div>
+        </Fab>
+        <Card.Body className={styles.Card}>
+          {title && (
+            <Card.Title className={`${styles.Title} ${"text-center"}`}>
+              {title}
+            </Card.Title>
+          )}
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 

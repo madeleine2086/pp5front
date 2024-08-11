@@ -1,0 +1,16 @@
+.Content {
+    background-color: #f4eeee;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+  }
+
+.Title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.TitleBold {
+    font-weight: 900
+}

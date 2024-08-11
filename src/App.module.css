@@ -12,7 +12,7 @@
   background-color: #ffffff;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #dadadf;
+  border: 1px solid #cccce9;
 }
 
 .FillerImage {
@@ -22,7 +22,7 @@
 }
 
 .Image {
-  max-height: 40vh;
+  max-height: 80vh;
   max-width: 100%;
   object-fit: contain;
 }
@@ -79,4 +79,12 @@ figure {
 }
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@media only screen and (max-width: 600px) {
+  .Content {
+      margin-right: 10px;
+      margin-left: 10px;
+      width: 95%;
+  }
 }

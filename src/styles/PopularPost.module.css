@@ -1,19 +1,23 @@
 .Post {
-    background-color: #fff;
-    border-radius: 15px;
-    margin-bottom: 32px;
+    background-color: #ffffff;
+    margin-bottom: 15px;
     position: relative;
     overflow: hidden;
+    
 }
 
+.Image {
+    max-height: 35vh;
+    max-width: 100%;
+    object-fit: contain;
+  }
 
 .CountNumber {
     color: #fff;
 }
 
-.Card {
-    padding: 16px;
-    background-color: #ffb5b5;
+.Card {    
+    background-color: #6c6666;
 }
 
 .Title {
@@ -24,7 +28,7 @@
     position: absolute !important;
     top: 6px;
     left: 6px;
-    background-color: #1c1c1c8c !important;
+    background-color: #0000008c !important;
     z-index: 2!important;
 }
 

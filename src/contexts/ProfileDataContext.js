@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
+import useAlert from "../hooks/useAlert";
 
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
@@ -10,13 +11,13 @@ export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
-  const [profileData, setProfileData] = useState({
-    // we will use the pageProfile later!
+  const [profileData, setProfileData] = useState({    
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
   });
 
   const currentUser = useCurrentUser();
+  const { setAlert } = useAlert();
 
   const handleFollow = async (clickedProfile) => {
     try {
@@ -38,8 +39,9 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      setAlert("You have followed this profile", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
@@ -61,8 +63,9 @@ export const ProfileDataProvider = ({ children }) => {
           ),
         },
       }));
+      setAlert("Profile unfollowed!", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
@@ -77,7 +80,7 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 
