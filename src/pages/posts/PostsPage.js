@@ -51,6 +51,7 @@ function PostsPage({ message, filter = "" }) {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
       
       <PopularProfiles mobile />
+      <PopularPosts mobile/>
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}

@@ -9,7 +9,7 @@ const PopularPost = (props) => {
 
   return (
     <Container className={styles.Post}>
-      <Card className={`${styles.Post} ${appStyles.BoxShadow}`}>
+      <Card className={`${styles.Post} ${appStyles.BoxShadow} ${appStyles.SideWidgets}`}>
         <Link to={`/posts/${id}`}>
           <Card.Img className={`${styles.Image} ${appStyles.ImageHover}`} src={image} alt={title} />
         </Link>

@@ -43,8 +43,8 @@ function MostCommentedPosts({ mobile, message, filter = "" }) {
 
   return (
     <Container
-      className={`${styles.Content} ${
-        mobile && "d-lg-none text-center mb-3"
+      className={`${appStyles.SideWidgets} ${
+        mobile && "d-none"
       }`}
     >
       {hasLoaded ? (
