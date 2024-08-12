@@ -1,6 +1,6 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-// import logo from "../assets/logo.jpg";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
 import styles from "../styles/NavBar.module.css";
 import LocalLibrarySharpIcon from '@mui/icons-material/LocalLibrarySharp';
 import { NavLink } from "react-router-dom";
@@ -29,6 +29,7 @@ const NavBar = () => {
       removeTokenTimestamp();
       setAlert("You are now logged out", "success");
     } catch (err) {
+      // console.log(err);
       setAlert(err.message, "error");
     }
   };

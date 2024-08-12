@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
@@ -45,6 +45,7 @@ const Comment = (props) => {
       }));
       setAlert("Comment deleted!", "success");
     } catch (err) {
+      // console.log(err);
       setAlert(err.message, "error");
     }
   };

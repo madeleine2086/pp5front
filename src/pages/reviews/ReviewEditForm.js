@@ -45,6 +45,7 @@ function ReviewEditForm(props) {
       setShowEditForm(false);
       setAlert("Review edited", "success");
     } catch (err) {
+      // console.log(err);
       setAlert(err.message, "error");
     }
   };

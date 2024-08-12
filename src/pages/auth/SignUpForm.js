@@ -45,7 +45,7 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
-      setAlert(`You have registered succesfully ${username}, please log in`, "success");
+      setAlert(`You have registered succesfully ${username}, please log in now`, "success");
     } catch (err) {
       setErrors(err.response?.data);
     }

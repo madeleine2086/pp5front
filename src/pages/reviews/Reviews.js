@@ -31,6 +31,7 @@ const Reviews = (props) => {
       }));
       setAlert("You have deleted your book review", "success");
     } catch (err) {
+      // console.log(err);
       setAlert(err.message, "error");
     }
   };

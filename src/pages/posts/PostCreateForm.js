@@ -63,6 +63,7 @@ function PostCreateForm() {
       history.push(`/posts/${data.id}`);
       setAlert("Post created", "success");
     } catch (err) {
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

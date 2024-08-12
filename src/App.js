@@ -16,7 +16,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import ConfirmDialog from "./components/ConfirmDialog";
-import AlertDisplay from "./components/AlertDisplay";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -25,7 +25,6 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
-        <AlertDisplay />
         <Switch>
         <Route
             exact

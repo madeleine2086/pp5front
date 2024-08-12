@@ -50,6 +50,7 @@ const UserPasswordForm = () => {
       history.goBack();
       setAlert("You have updated your password", "success");
     } catch (err) {
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };

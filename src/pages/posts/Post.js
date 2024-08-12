@@ -15,10 +15,10 @@ import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
+import Tooltip from "@mui/material/Tooltip";
 
 import Reviews from "../reviews/Reviews";
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
-import Tooltip from "@mui/material/Tooltip";
 import appStyles from "../../App.module.css";
 import useAlert from "../../hooks/useAlert";
 

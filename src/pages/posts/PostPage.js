@@ -10,7 +10,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
 import CommentCreateForm from "../comments/CommentCreateForm";
-import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
@@ -18,6 +17,7 @@ import styles from "../../styles/PostPage.module.css";
 import { fetchMoreData } from "../../utils/utils";
 import Tooltip from "@mui/material/Tooltip";
 import { Link } from "react-router-dom";
+import PopularProfiles from "../profiles/PopularProfiles";
 import PopularPosts from "./PopularPosts";
 import MostCommentedPosts from "../../components/MostCommentedPosts";
 
@@ -60,7 +60,6 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <PopularPosts mobile />
         
         {hasLoaded ? (
           <>

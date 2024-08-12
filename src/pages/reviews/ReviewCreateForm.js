@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import Form from "react-bootstrap/Form";
-
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 import useAlert from "../../hooks/useAlert";
@@ -44,6 +42,7 @@ function ReviewCreateForm(props) {
       }));
       setAlert("Review created", "success");
     } catch (err) {
+      // console.log(err);
       setAlert(err.message, "error");
     }
   };

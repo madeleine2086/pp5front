@@ -2,9 +2,9 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
+import { confirmDialog } from "../components/ConfirmDialog";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
+
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -34,7 +34,11 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
-          onClick={handleDelete}
+          onClick={() => {
+            confirmDialog("Are you sure you want to delete it?", () => {
+              handleDelete();
+            });
+          }}
           aria-label="delete"
         >
           <i className="fas fa-trash-alt" />

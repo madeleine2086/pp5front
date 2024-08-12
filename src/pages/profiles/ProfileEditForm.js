@@ -79,6 +79,7 @@ const ProfileEditForm = () => {
       history.goBack();
       setAlert("Profile updated", "success");
     } catch (err) {
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
@@ -50,6 +50,7 @@ const UsernameForm = () => {
       history.goBack();
       setAlert("You have updated your username", "success");
     } catch (err) {
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };
