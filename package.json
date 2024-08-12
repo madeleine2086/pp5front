@@ -52,7 +52,6 @@
     "msw": "^0.35.0"
   },
   "engines": {
-    "node": "yournodeversion",
-    "npm": "yournpmversion"
+    "node": "v20.15.1"    
   }
 }
