@@ -1,7 +1,6 @@
 import { Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Fab from "@mui/material/Fab";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PopularPost.module.css";
 

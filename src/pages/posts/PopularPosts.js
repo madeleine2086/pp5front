@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-
 import { Container } from "react-bootstrap";
-
 import PopularPost from "./PopularPost";
 import Asset from "../../components/Asset";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PopularPosts.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-
 import NoResults from "../../assets/no-results.png";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 

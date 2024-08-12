@@ -57,7 +57,7 @@ const Post = (props) => {
       history.push("/");
       setAlert("You have deleted your post", "success");
     } catch (err) {
-      setAlert(err.message, "Error");
+      setAlert(err.message, "error");
     }
   };
 
@@ -149,7 +149,7 @@ const Post = (props) => {
           <div className={styles.Heart}>
             {is_owner ? (
               <Tooltip
-                title="You have to log in to like posts"
+                title="You can't like your own posts!"
                 placement="top"
                 arrow
               >
@@ -240,7 +240,7 @@ const Post = (props) => {
             </span>
           ) : (
             <span className={styles.NoReview}>
-              Sorry no review has been added yet!
+              No review has been added yet!
             </span>
           )}
         </Card.Body>
