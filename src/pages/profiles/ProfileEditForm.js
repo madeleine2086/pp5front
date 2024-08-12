@@ -14,7 +14,7 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
+import useAlert from "../../hooks/useAlert";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
@@ -33,6 +33,7 @@ const ProfileEditForm = () => {
   const { name, content, image } = profileData;
 
   const [errors, setErrors] = useState({});
+  const { setAlert } = useAlert();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -42,7 +43,6 @@ const ProfileEditForm = () => {
           const { name, content, image } = data;
           setProfileData({ name, content, image });
         } catch (err) {
-          console.log(err);
           history.push("/");
         }
       } else {
@@ -77,8 +77,8 @@ const ProfileEditForm = () => {
         profile_image: data.image,
       }));
       history.goBack();
+      setAlert("Profile updated", "success");
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
