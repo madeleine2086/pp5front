@@ -4,11 +4,13 @@ import Form from "react-bootstrap/Form";
 
 import styles from "../../styles/ReviewEditCreateForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import useAlert from "../../hooks/useAlert";
 
 function ReviewCreateForm(props) {
   const { post, setReviews } = props;
   const [product_name, setProductName] = useState("");
   const [content, setContent] = useState("");
+  const { setAlert } = useAlert();
 
   const handleProductName = (event) => {
     setProductName(event.target.value);
@@ -40,8 +42,9 @@ function ReviewCreateForm(props) {
           },
         ],
       }));
+      setAlert("Review created", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 
@@ -50,7 +53,7 @@ function ReviewCreateForm(props) {
       <Form.Group>
         <Form.Control
           className={styles.Form}
-          placeholder="Product Name"
+          placeholder="Book title and author:"
           as="textarea"
           name="product_name"
           value={product_name}
@@ -59,7 +62,7 @@ function ReviewCreateForm(props) {
         />
         <Form.Control
           className={styles.Form}
-          placeholder="Your review.."
+          placeholder="Your review:"
           as="textarea"
           name="content"
           value={content}

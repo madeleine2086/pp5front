@@ -27,6 +27,7 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import MostCommentedPosts from "../../components/MostCommentedPosts";
 
+
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
@@ -140,7 +141,7 @@ function ProfilePage() {
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
-              {mainProfile}
+              {mainProfile}              
               {mainProfilePosts}
             </>
           ) : (

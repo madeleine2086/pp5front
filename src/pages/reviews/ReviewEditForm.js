@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/ReviewEditCreateForm.module.css";
+import useAlert from "../../hooks/useAlert";
 
 function ReviewEditForm(props) {
   const { id, content, setShowEditForm, setReviews, 
@@ -11,6 +12,7 @@ function ReviewEditForm(props) {
 
    const [formProductName, setFormProductName] = useState(product_name);
    const [formContent, setFormContent] = useState(content)
+   const { setAlert } = useAlert();
 
   const handleProductName = (event) => {
     setFormProductName(event.target.value);
@@ -41,8 +43,9 @@ function ReviewEditForm(props) {
         }),
       }));
       setShowEditForm(false);
+      setAlert("Review edited", "success");
     } catch (err) {
-      console.log(err);
+      setAlert(err.message, "error");
     }
   };
 

@@ -5,6 +5,7 @@ import styles from "../../styles/Reviews.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import ReviewEditForm from "./ReviewEditForm";
+import useAlert from "../../hooks/useAlert";
 
 const Reviews = (props) => {
   const {
@@ -19,6 +20,7 @@ const Reviews = (props) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const { setAlert } = useAlert();
 
   const handleDelete = async () => {
     try {
@@ -27,7 +29,10 @@ const Reviews = (props) => {
         ...prevReviews,
         results: prevReviews.results.filter((review) => review.id !== id),
       }));
-    } catch (err) {}
+      setAlert("You have deleted your book review", "success");
+    } catch (err) {
+      setAlert(err.message, "error");
+    }
   };
 
   return (

@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from "../assets/logo.jpg";
+// import logo from "../assets/logo.jpg";
 import styles from "../styles/NavBar.module.css";
+import LocalLibrarySharpIcon from '@mui/icons-material/LocalLibrarySharp';
 import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
@@ -98,8 +99,8 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="45" />
-            <span> BOOK|tagram</span>
+            {/* <img src={logo} alt="logo" height="45" /> */}
+            <span> Book<LocalLibrarySharpIcon />tagram</span>
           </Navbar.Brand>
           <AlertDisplay />
         </NavLink>
