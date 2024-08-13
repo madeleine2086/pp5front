@@ -9,7 +9,7 @@ import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 import { AlertProvider } from "./contexts/AlertContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Router>
       <AlertProvider>
         <CurrentUserProvider>
@@ -18,8 +18,7 @@ ReactDOM.render(
           </ProfileDataProvider>
         </CurrentUserProvider>
       </AlertProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById("root")
 );
 
