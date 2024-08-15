@@ -1,7 +1,11 @@
 <br />
 
-# Project name
-## Project description
+# BOOK|tagram
+
+<img src="documentation/readme-screenshots/mock-up.png">
+<br />
+## Social website for all book enthusiasts. Show everyone what you are reading and post reviews of books you read for others to see. Follow other profiles, like and comment on people's posts!
+<br />
 
 <h1 id="contents">Contents</h1>
 
@@ -11,6 +15,9 @@
 -   [User Stories](#user-stories)
 -   [Agile Methodology](#agile-methodology)
 -   [Scope](#the-scope)
+-   [Design](#design)
+-   [Features](#features)
+    -   [Landing Page](#landing-page)
 -   [Technologies Used](#technologies-used)
     -   [Languages](#languages)
     -   [Frameworks, libraries, and Programs](#frameworks-libraries-and-programs)
@@ -35,7 +42,7 @@ The backend API repository for BOOKtagram can be found <a href="https://github.c
 <br />
 
 
-## Database Schema
+<h2 id="database-schema">Database Schema</h2>
 
 
 
@@ -91,6 +98,21 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 * To provide search functionality to find posts
 * To provide role-based permissions that allows user to interact with the site
 * To provide users with a visually pleasing site - intuitive to use and easy to navigate.
+
+
+<h2 id="design">Design</h2>
+<h3>Colours</h3>
+  BOOK|tagram is designed to be simple and clean and modern looking, as the emphasis is on the content. High contrast, but not overwhelming, colours were used. 
+
+<h3>Wireframes</h3>
+
+
+<h2 id="features">Features</h2>
+<h3>Landing Page</h3>
+    Desktop:
+    <img src="documentation/readme-screenshots/landing-desktop.png">
+    Mobile:
+    <img src="documentation/readme-screenshots/landing-mobile.png">
 
 
 
