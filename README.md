@@ -18,6 +18,8 @@
 -   [Design](#design)
 -   [Features](#features)
     -   [Landing Page](#landing-page)
+    -   [Navigation Bar](#navigation)
+    -   [Side Bars](#side-bars)
 -   [Technologies Used](#technologies-used)
     -   [Languages](#languages)
     -   [Frameworks, libraries, and Programs](#frameworks-libraries-and-programs)
@@ -108,11 +110,48 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 
 
 <h2 id="features">Features</h2>
-<h3>Landing Page</h3>
-    Desktop:
+
+<h3 id="landing-page">Landing Page</h3>
+    * The landing page is the home page of the website, visible first when the site loads. The landing page displays all posts in   chronological order by latest first and the sidebar displays the popular profiles. Below popular profiles there are Popular Posts (top liked posts) and Most Commented Posts (posts with the most comments).
+
+    <h4>Landing page on desktop:</h4>
     <img src="documentation/readme-screenshots/landing-desktop.png">
-    Mobile:
+    <h4>Landing page on mobile:</h4>
     <img src="documentation/readme-screenshots/landing-mobile.png">
+
+<h3 id="navigation">Navigation</h3>
+    * Options in the navigation bar are changing depending on wheter a user is logged in or not. The navigation bar is placed on the top of each page, allowing access to the navigation at any time. This is consistant throughout the website.
+    * Navigation menu options when a user is not logged in are home, login & sign-up.
+    * Navigation menu options when an authenticated user is logged in are home, add post, feed, liked, sign out & profile.
+
+    Navigation bar on desktop when not logged in:
+  <img src="documentation/readme-screenshots/navbar-desktop-notloggedin.png">
+
+    Navigation bar on desktop when a user is logged in:
+  <img src="documentation/readme-screenshots/navbar-desktop-loggedin.png">
+
+    Navigation bar on mobile when not logged in:
+  <img src="documentation/readme-screenshots/navbar-mobile-notloggedin.png">
+
+    Navigation bar on mobile when a user is logged in:
+  <img src="documentation/readme-screenshots/navbar-mobile-loggedin.png">
+
+<h3 id="side-bars">Side Bars</h3>
+    * There are three side bars (components) on the desktop view: Popular Profiles, Popular Posts and Most Commented Posts.
+      *Popular Profiles on desktop:
+      <img src="documentation/readme-screenshots/popular-profiles-desktop.png">
+      *Popular Profiles on mobile:
+      <img src="documentation/readme-screenshots/popular-profiles-mobile.png">
+
+      *Popular Posts:
+      <img src="documentation/readme-screenshots/popular-posts.png">
+
+      *Most Commented Posts:
+      <img src="documentation/readme-screenshots/most-commented-posts.png">
+
+    * Most Commented Profiles and Popular Posts are disabled for a mobile view.
+
+
 
 
 
