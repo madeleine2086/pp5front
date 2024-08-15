@@ -24,7 +24,7 @@
 -   [Technologies Used](#technologies-used)
     -   [Languages](#languages)
     -   [Frameworks, libraries, and Programs](#frameworks-libraries-and-programs)
--   [Testing Automated and Manual](TESTING.md)
+-   [Testing Automated and Manual](TESTS.md)
 -   [Bugs](#bugs)
 -   [Project Setup](#project-setup)
 -   [Deployment](#deployment)
