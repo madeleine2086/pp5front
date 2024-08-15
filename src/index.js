@@ -8,8 +8,7 @@ import { CurrentUserProvider } from "./contexts/CurrentUserContext";
 import { ProfileDataProvider } from "./contexts/ProfileDataContext";
 import { AlertProvider } from "./contexts/AlertContext";
 
-ReactDOM.render(
-  
+ReactDOM.render(  
     <Router>
       <AlertProvider>
         <CurrentUserProvider>

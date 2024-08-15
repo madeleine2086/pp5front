@@ -23,14 +23,14 @@
 
 ## Introduction
 
-..... is a frontend React.js project that runs on Heroku.
+BOOKtagram is a frontend React.js project that runs on Heroku.
 
 This app allows users to view uploaded photos ....
-Once registered, logged user can create, edit, add and delete posts, add, edit and delete comments and ... from the frontend.
+Once registered, logged user can create, edit, add and delete posts, add, edit and delete comments and their own book reviews from the frontend.
 
-A live version of the website can be found <a>here</a>
+A live version of the website can be found <a href="https://pp5front-c44116638555.herokuapp.com/" target="_blank">here.</a>
 
-The backend API repository for ..... can be found <a href="https://github.com/madeleine2086/pp5-backend/" target="_blank">here</a>
+The backend API repository for BOOKtagram can be found <a href="https://github.com/madeleine2086/pp5-backend/" target="_blank">here.</a>
 
 <br />
 
@@ -82,7 +82,7 @@ The backend API repository for ..... can be found <a href="https://github.com/ma
 <h2 id="agile-methodology">Agile Methodology</h2>
 
 The Agile Methodology was used to plan this project, implemented through Github and the Project Board.
-Project Board can be seen <a>here</a>
+Project Board can be seen here => <a href="https://github.com/users/madeleine2086/projects/6" target="_blank">BOOKtagram User Stories</a>
 
 <h2 id="the-scope">The Scope</h2>
 
