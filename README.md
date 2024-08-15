@@ -24,7 +24,7 @@
 -   [Technologies Used](#technologies-used)
     -   [Languages](#languages)
     -   [Frameworks, libraries, and Programs](#frameworks-libraries-and-programs)
--   [Testing Automated and Manual](TESTS.md)
+-   [Testing Automated and Manual](#testing)
 -   [Bugs](#bugs)
 -   [Project Setup](#project-setup)
 -   [Deployment](#deployment)
@@ -161,13 +161,8 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 - A logged in user can also create, edit and delete a review about a book on their own posts.
 
 
-
-
-
-
-
-
-## Testing
+<h1 id="testing">Testing</h1>
+Please go to [TESTS](TESTS.md)
 
 
 ## Bugs
