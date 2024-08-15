@@ -21,12 +21,11 @@
     -   [Navigation Bar](#navigation)
     -   [Side Bars](#side-bars)
     -   [Post Creation](#post)
+    -   [Feed](#feed)
 -   [Technologies Used](#technologies-used)
     -   [Languages](#languages)
     -   [Frameworks, libraries, and Programs](#frameworks-libraries-and-programs)
 -   [Testing Automated and Manual](#testing)
--   [Bugs](#bugs)
--   [Project Setup](#project-setup)
 -   [Deployment](#deployment)
 -   [Credits](#credits)
 -   [Acknowledgements](#acknowledgements)
@@ -160,13 +159,13 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 - When a user is logged in they can create, edit, like, comment on a post.
 - A logged in user can also create, edit and delete a review about a book on their own posts.
 
+<h3 id="feed">Feed</h3>
+<br />
+- Logged in user can see all posts of users they follow
+
 
 <h1 id="testing">Testing</h1>
-Please go to [TESTS](TESTS.md)
-
-
-## Bugs
-
+Please go to [TESTS](https://github.com/madeleine2086/pp5front/blob/main/TESTS.md)
 
 
 ## Technologies Used
@@ -176,13 +175,24 @@ Please go to [TESTS](TESTS.md)
 ### Languages
 
 - Python - Django REST API
+- HTML 5
+- CSS 3
+- JavaScript
+- React
 
-### Frameworks, libraries, and Programs
-
-
-
-
-
+<h3>Frameworks, libraries, and Programs</h3>
+- ElephantSQL
+- Git
+- GitHub
+- Heroku
+- W3C - HTML
+- Fontawesome
+- Google Chrome Dev Tools
+- React Bootstrap
+- Axios
+- Material UI
+- JWT Decode
+- Jest-dom
 
 
 ## Deployment
@@ -204,23 +214,38 @@ Deployment steps:
 
 
 
-
-
-
-
 ## Credits
 <h2 id="credits">...</h2>
-### Some photos used in the project are my own.
-#### Other photos used are from:
+- Resources that helped me with this project:
+  - W3Schools - React
+  - React Documentation
+  - Material UI
+  - https://github.com/JaqiKal
+  - https://github.com/artcuddy
+  - https://www.youtube.com/@TechWithTim
+  - https://www.youtube.com/@LamaDev
+  - Code Institute "Moments" walkthrough helped me setup the base for BOOK|tagram
 
+- Credits:
+  - Posts photos used in the project are from Pexels
+  - Sign In and Sign Up page photots are also from Pexels
+  - Book cover photos are from Google search books
+  - Photos used in user profile "Colm" are private photos of my friend, Colm.
+  - Book reviews in "Colm" profile are created by Colm.
+  - Other profiles book reviews are taken from:
+    - https://www.goodreads.com/
+    - https://joesnotesblog.com/blog/book-review-1984-by-george-orwell
 
 
 
 
 ## Acknowledgements
 
+<h2 id="acknowledgements"></h2>
 
-<a href="#top">Back to the top.</a>
-<h2 id="acknowledgements">...</h2>
+This project was made possible due to help of tutoring team and analysing lots of public repositories:
+- https://github.com/JaqiKal
+- https://github.com/artcuddy
+I'd like to thank everyone in Code institute, my family for still speaking to me, and my friend Colm for being a very good website user.
 
 
