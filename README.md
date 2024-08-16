@@ -16,6 +16,7 @@
 -   [Agile Methodology](#agile-methodology)
 -   [Scope](#the-scope)
 -   [Design](#design)
+-   [Wireframes](#wireframes)
 -   [Features](#features)
     -   [Landing Page](#landing-page)
     -   [Navigation Bar](#navigation)
@@ -106,7 +107,10 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 <h3>Colours</h3>
   BOOK|tagram is designed to be simple and clean and modern looking, as the emphasis is on the content. High contrast, but not overwhelming, colours were used. 
 
-<h3>Wireframes</h3>
+<h3 id="wireframes">Wireframes</h3>
+  - The basic wireframe was created in Balsamiq:
+
+  <img src="documentation/readme-screenshots/wireframe.png">
 
 
 <h2 id="features">Features</h2>
@@ -157,6 +161,8 @@ Project Board can be seen here => <a href="https://github.com/users/madeleine208
 <h3 id="post">Post creation</h3>
 <br />
 - When a user is logged in they can create, edit, like, comment on a post.
+<img src="documentation/readme-screenshots/testing/console/manual-checks/post-create-form.png">
+<br />
 - A logged in user can also create, edit and delete a review about a book on their own posts.
 
 <h3 id="feed">Feed</h3>
@@ -182,17 +188,29 @@ Please go to [TESTS](https://github.com/madeleine2086/pp5front/blob/main/TESTS.m
 
 <h3>Frameworks, libraries, and Programs</h3>
 - ElephantSQL
+<br />
 - Git
+<br />
 - GitHub
+<br />
 - Heroku
+<br />
 - W3C - HTML
+<br />
 - Fontawesome
+<br />
 - Google Chrome Dev Tools
+<br />
 - React Bootstrap
+<br />
 - Axios
+<br />
 - Material UI
+<br />
 - JWT Decode
+<br />
 - Jest-dom
+<br />
 
 
 ## Deployment
